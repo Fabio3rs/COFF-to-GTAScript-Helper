@@ -1,0 +1,4 @@
+compileCMD F:/MinGW/bin/g++.exe -c %0 -Os -w -fno-threadsafe-statics -fvisibility-ms-compat -fno-exceptions -IF:/MinGW/include -IF:/MinGW/i686-w64-mingw32/include -IF:/MinGW/i686-w64-mingw32/include/c++ -IF:/MinGW/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IF:/MinGW/lib/gcc/i686-w64-mingw32/4.8.3/include -nostdlib -std=c++11 -shared -masm=intel -o %1
+compileCMD2 F:/MinGW/bin/g++.exe %0 -Os -w -fno-threadsafe-statics -fvisibility-ms-compat -fno-exceptions -IF:/MinGW/include -IF:/MinGW/i686-w64-mingw32/include -IF:/MinGW/i686-w64-mingw32/include/c++ -IF:/MinGW/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IF:/MinGW/lib/gcc/i686-w64-mingw32/4.8.3/include -nostdlib -std=c++11 -shared -masm=intel -S -o %1
+
+

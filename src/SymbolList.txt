@@ -1,0 +1,253 @@
+_strlen   .text 00826330 0000008B 00000000 00000004 R . L S . T .
+_strcmp   .text 008263C0 00000088 00000000 00000008 R . L S . T .
+_strncat  .text 00826450 00000135 00000000 0000000C R . L S . T .
+_strcpy_0 .text 00826590 00000007 00000004 00000008 R . L . . T .
+_strcat   .text 008265A0 000000E8 00000000 00000008 R . L S . T .
+_fclose                         .text 0082318B 00000046 00000000 00000000 R . L . . T .
+_fcos                           .text 0041BCF0 00000007 00000000 00000004 R . . . . T .
+_feof                           .text 008262A2 0000000B 00000000 00000004 R . . . . T .
+_ferror                         .text 008262AD 0000000B 00000000 00000004 R . L . . T .
+_fflush                         .text 00823E86 00000046                   R . L . . T .
+_fgetc                          .text 008231DC 00000045                   R . L . . T .
+_fgetc_0                        .text 0082322C 00000045                   R . L . . T .
+_fgets                          .text 00823798 0000007B 00000000 00000000 R . L . . T .
+_findAnimationStyleByBaseName   .text 004D39B0 00000039 00000004 00000004 R . . . . T .
+_findCrane                      .text 00556000 0000002F 00000004 00000004 R . . . . T .
+_findCullZoneForPoint           .text 0072DAD0 0000007B 0000000C 00000000 R . . . . . .
+_findCullZoneReflectionForPoint .text 0072DA70 0000005E 00000010 0000000C R . . . . . .
+_findFirstAtomicWith2dfx        .text 00734880 00000025 00000004 00000004 R . . . . . .
+_findFirstAtomicWith2dfxCB      .text 00734850 00000022 00000000 00000008 R . . . . T .
+_findFrameByNodeNameCB          .text 004C52A0 00000045 00000004 00000008 R . . . . T .
+_findIfpFileByName              .text 004D3940 00000046 00000000 00000004 R . . . . . .
+_findShoppingDatSection         .text 0049AE70 0000009C 00000008 00000008 R . . . . T .
+_findenv                        .text 00834F14 0000004D 00000004 00000004 R . L S . . .
+_fix_grouping                   .text 0082FDD6 00000033                   R . L S . . .
+_fix_grouping_0                 .text 00830035 00000033                   R . L S . . .
+_floor                          .text 008219F0 00000121 00000010 00000008 R . L . . T .
+_floor_0                        .text 00828A60 000000D1 00000028 00000008 R . L . B T .
+_floor_1                        .text 0082BA31 000000D1 00000028 00000008 R . L . B T .
+_fopen                          .text 008232D8 00000013 00000000 00000008 R . L . . T .
+_fpow                           .text 00470000 0000000E 00000000 00000008 R . . . . T .
+_fprintf                        .text 00823A30 00000054                   R . . . . T .
+_fputs                          .text 008262B8 00000067                   R . L . . T .
+_frameFlattenHierarchyCB        .text 004C8E30 00000030 00000004 00000008 R . . . . T .
+_frameGetFirstChild             .text 00734900 00000025 00000004 00000004 R . . . . T .
+_frameGetHAnimHierarchy         .text 00734AB0 00000056 00000008 00000004 R . . . . T .
+_frameGetHAnimHierarchyCB       .text 00734A70 00000033 00000004 00000008 R . . . . T .
+_fread                          .text 00823521 00000042 00000000 00000010 R . L . . T .
+_fread_0                        .text 00823438 000000E9 0000000C 00000010 R . L . B T .
+_free                           .text 0082413F 00000053                   R . . . . T .
+_freeCollisionFilePool          .text 004114D0 000000A4 00000004 00000000 R . . . . . .
+_freeCollisions                 .text 004162E0 00000044 00000004 00000000 R . . . . . .
+_freeMapPipe                    .text 005DA130 000000F6 00000000 00000000 R . . . . . .
+_freePaths                      .text 00459400 0000003C 00000008 00000000 R . . . . . .
+_freePedAcquaintances           .text 00608B00 00000029                   R . . . . . .
+_freezeVehicleOnPath            .text 00459740 00000105 00000000 00000004 R . . . . . .
+_fseek                          .text 0082374F 0000003F 00000000 00000000 R . L . . T .
+_fsin                           .text 0041BCE0 00000007 00000000 00000004 R . . . . T .
+_fsopen                         .text 0082327C 00000052                   R . . . . T .
+_ftell                          .text 00826261 00000037                   R . L . . T .
+_fwrite                         .text 00823674 00000042 00000000 00000000 R . L . . T .
+_fwrite_0                       .text 0082356D 00000107 0000000C 00000010 R . L . B T .
+_generateLicenseplate		.text 006FD5B0
+_malloc .text 00824257 00000012 00000000 00000004 R . L . . T .
+_GetLocalTime@4 .text 0081E514
+__imp__VirtualProtect@16 .data 0085802C
+__imp__GetProcAddress@8 .data 0081E40C
+_gtasprintf .text 00821BB5
+_loadScm                            .text 00468D50 0000063B 00000024 00000000 R . . . . T .
+_loadWavAndLinkToActor              .text 0043A810 0000002D 00000000 00000008 R . . . . T .
+_loadWmvcore                        .text 00502B80 0000006F 00000010 00000000 R . . . . . .
+_localtime                          .text 008326F5 00000180 00000004 00000008 R . L . B T .
+_longjmp                            .text 00825FF8 00000078 00000000 00000008 R . L . . T .
+_makeProceduralObject               .text 005A2EB0 000000CC 00000000 00000035 R . . . . . .
+_makeSaveFileName                   .text 006190A0 00000025 00000000 00000008 R . . . . . .
+_malloc                             .text 00824257 00000012 00000000 00000004 R . L . . T .
+_mapInternationalChar               .text 00719360 00000013 00000000 00000001 R . . . . . .
+_mapPipeInstanceCallback            .text 005D8490 00000027 00000000 0000000C R . . . . . .
+_mapPipeRenderCallback              .text 005D9900 0000067A 0000004C 0000000D R . . . . . .
+_materialSetCarplateTextureCB       .text 006FE060 0000006F 00000004 00000008 R . . . . T .
+_materialTextureSetFilterAddressing .text 00734D60 00000012 00000000 00000005 R . . . . T .
+_max                                .text 00404330 00000019 00000000 00000008 R . . . . T .
+_mbtowc                             .text 008338CE 0000002B 00000000 0000000C R . L . . T .
+_memcmp                             .text 00830F00 000000B8 00000000 0000000C R . L S . T .
+_memicmp                            .text 00835AC7 0000007F 00000008 0000000C R . . . B T .
+_memmove                            .text 00822A20 0000033D 00000004 0000000C R . L . B T .
+_memset                             .text 0082D4C0 00000060 00000000 0000000C R . L S . T .
+_modf                               .text 008232F0 00000148 0000001C 0000000C R . L S . T .
+_obj_C40350__constructor            .text 00706770 00000024                   R . . . . . .
+_obj_C40350__destructor             .text 007067A0 00000014 00000004 00000000 R . . . . . .
+_obj_C80740__constructor            .text 00728B10 0000001B                   R . . . . T .
+_obj_C80740__destructor             .text 00728B30 0000000B                   R . . . . T .
+_onSetFocus                         .text 0053BC60 0000001A                   R . . . . . .
+__imp__GetModuleHandleA@4          .text 0081E406 00000006                   R . . . . T .
+GetProcAddress            .text 0081E40C 00000006                   R . . . . T .
+LoadLibraryA              .text 0081E412 00000006                   R . . . . T .
+GetFileSize               .text 0081E418 00000006                   R . . . . T .
+CloseHandle               .text 0081E41E 00000006                   R . . . . T .
+LocalFree                 .text 0081E424 00000006                   R . . . . T .
+WaitForSingleObjectEx     .text 0081E42A 00000006                   R . . . . T .
+GetOverlappedResult       .text 0081E430 00000006                   R . . . . T .
+WaitForSingleObject       .text 0081E436 00000006                   R . . . . T .
+ReleaseSemaphore          .text 0081E43C 00000006                   R . . . . T .
+SetFilePointer            .text 0081E442 00000006                   R . . . . T .
+GetLastError              .text 0081E448 00000006                   R . . . . T .
+ReadFile                  .text 0081E44E 00000006                   R . . . . T .
+SetLastError              .text 0081E454 00000006                   R . . . . T .
+CreateFileA               .text 0081E45A 00000006                   R . . . . T .
+ResumeThread              .text 0081E460 00000006                   R . . . . T .
+SetThreadPriority         .text 0081E466 00000006                   R . . . . T .
+GetThreadPriority         .text 0081E46C 00000006                   R . . . . T .
+GetCurrentThread          .text 0081E472 00000006                   R . . . . T .
+CreateThread              .text 0081E478 00000006                   R . . . . T .
+LocalAlloc                .text 0081E47E 00000006                   R . . . . T .
+CreateSemaphoreA          .text 0081E484 00000006                   R . . . . T .
+GetDiskFreeSpaceA         .text 0081E48A 00000006                   R . . . . T .
+Sleep                     .text 0081E490 00000006                   R . . . . T .
+QueryPerformanceCounter   .text 0081E496 00000006                   R . . . . T .
+InterlockedIncrement      .text 0081E49C 00000006                   R . . . . T .
+InterlockedDecrement      .text 0081E4A2 00000006                   R . . . . T .
+lstrcpyA                  .text 0081E4A8 00000006                   R . . . . T .
+lstrcatA                  .text 0081E4AE 00000006                   R . . . . T .
+lstrlenA                  .text 0081E4B4 00000006                   R . . . . T .
+DeleteCriticalSection     .text 0081E4BA 00000006                   R . . . . T .
+SuspendThread             .text 0081E4C0 00000006                   R . . . . T .
+LeaveCriticalSection      .text 0081E4C6 00000006                   R . . . . T .
+EnterCriticalSection      .text 0081E4CC 00000006                   R . . . . T .
+InitializeCriticalSection .text 0081E4D2 00000006                   R . . . . T .
+MultiByteToWideChar       .text 0081E4D8 00000006                   R . . . . T .
+DeleteFileA               .text 0081E4DE 00000006                   R . . . . T .
+TerminateThread           .text 0081E4E4 00000006                   R . . . . T .
+FindClose                 .text 0081E4EA 00000006                   R . . . . T .
+FindNextFileA             .text 0081E4F0 00000006                   R . . . . T .
+GetFileAttributesA        .text 0081E4F6 00000006                   R . . . . T .
+FindFirstFileA            .text 0081E4FC 00000006                   R . . . . T .
+FreeLibrary               .text 0081E502 00000006                   R . . . . T .
+QueryPerformanceFrequency .text 0081E508 00000006                   R . . . . T .
+OutputDebugStringA        .text 0081E50E 00000006                   R . . . . T .
+GetLocalTime              .text 0081E514 00000006                   R . . . . T .
+CreateDirectoryA          .text 0081E51A 00000006                   R . . . . T .
+GetUserDefaultLCID        .text 0081E520 00000006                   R . . . . T .
+GetSystemDefaultLCID      .text 0081E526 00000006                   R . . . . T .
+CreateEventA              .text 0081E52C 00000006                   R . . . . T .
+GetVolumeInformationA     .text 0081E532 00000006                   R . . . . T .
+GetDriveTypeA             .text 0081E538 00000006                   R . . . . T .
+GetLogicalDriveStringsA   .text 0081E53E 00000006                   R . . . . T .
+SetErrorMode              .text 0081E544 00000006                   R . . . . T .
+GlobalMemoryStatus        .text 0081E54A 00000006                   R . . . . T .
+GetVersionExA             .text 0081E550 00000006                   R . . . . T .
+GetCommandLineA           .text 0081E556 00000006                   R . . . . T .
+GetFullPathNameA          .text 0081E55C 00000006                   R . . . . T .
+WideCharToMultiByte       .text 0081E562 00000006                   R . . . . T .
+lstrcmpiA                 .text 0081E568 00000006                   R . . . . T .
+GetSystemInfo             .text 0081E56E 00000006                   R . . . . T .
+IsProcessorFeaturePresent .text 0081E574 00000006                   R . . . . T .
+LockResource              .text 0081E57A 00000006                   R . . . . T .
+LoadResource              .text 0081E580 00000006                   R . . . . T .
+SizeofResource            .text 0081E586 00000006                   R . . . . T .
+FindResourceA             .text 0081E58C 00000006                   R . . . . T .
+FindResourceW             .text 0081E592 00000006                   R . . . . T .
+MapViewOfFile             .text 0081E598 00000006                   R . . . . T .
+CreateFileMappingA        .text 0081E59E 00000006                   R . . . . T .
+CreateFileW               .text 0081E5A4 00000006                   R . . . . T .
+UnmapViewOfFile           .text 0081E5AA 00000006                   R . . . . T .
+ReleaseMutex              .text 0081E5B0 00000006                   R . . . . T .
+CreateMutexA              .text 0081E5B6 00000006                   R . . . . T .
+GetCurrentProcessId       .text 0081E5BC 00000006                   R . . . . T .
+GetSystemDirectoryA       .text 0081E5C2 00000006 00000000 00000000 R . . . . T .
+GetModuleFileNameA        .text 0081E5C8 00000006 00000000 00000000 R . . . . T .
+GetClientRect             .text 0081E5CE 00000006 00000000 00000000 R . . . . T .
+SetCursorPos              .text 0081E5D4 00000006 00000000 00000000 R . . . . T .
+ClientToScreen            .text 0081E5DA 00000006 00000000 00000000 R . . . . T .
+SetWindowTextA            .text 0081E5E0 00000006 00000000 00000000 R . . . . T .
+MessageBoxA               .text 0081E5E6 00000006 00000000 00000000 R . . . . T .
+GetWindowRect             .text 0081E5EC 00000006 00000000 00000000 R . . . . T .
+ShowCursor                .text 0081E5F2 00000006 00000000 00000000 R . . . . T .
+CreateWindowExA           .text 0081E5F8 00000006 00000000 00000000 R . . . . T .
+AdjustWindowRect          .text 0081E5FE 00000006 00000000 00000000 R . . . . T .
+SetWindowPos              .text 0081E604 00000006 00000000 00000000 R . . . . T .
+SendMessageA              .text 0081E60A 00000006 00000000 00000000 R . . . . T .
+SetFocus                  .text 0081E610 00000006 00000000 00000000 R . . . . T .
+GetDlgItem                .text 0081E616 00000006 00000000 00000000 R . . . . T .
+EndDialog                 .text 0081E61C 00000006 00000000 00000000 R . . . . T .
+DialogBoxParamA           .text 0081E622 00000006 00000000 00000000 R . . . . T .
+GetKeyboardLayout         .text 0081E628 00000006 00000000 00000000 R . . . . T .
+TranslateMessage          .text 0081E62E 00000006 00000000 00000000 R . . . . T .
+DispatchMessageA          .text 0081E634 00000006 00000000 00000000 R . . . . T .
+PeekMessageA              .text 0081E63A 00000006 00000000 00000000 R . . . . T .
+SetForegroundWindow       .text 0081E640 00000006 00000000 00000000 R . . . . T .
+FindWindowA               .text 0081E646 00000006 00000000 00000000 R . . . . T .
+GetKeyState               .text 0081E64C 00000006 00000000 00000000 R . . . . T .
+UpdateWindow              .text 0081E652 00000006 00000000 00000000 R . . . . T .
+MapVirtualKeyA            .text 0081E658 00000006 00000000 00000000 R . . . . T .
+DefWindowProcA            .text 0081E65E 00000006 00000000 00000000 R . . . . T .
+SetCapture                .text 0081E664 00000006 00000000 00000000 R . . . . T .
+SetCursor                 .text 0081E66A 00000006 00000000 00000000 R . . . . T .
+PostQuitMessage           .text 0081E670 00000006 00000000 00000000 R . . . . T .
+ClipCursor                .text 0081E676 00000006 00000000 00000000 R . . . . T .
+SetTimer                  .text 0081E67C 00000006 00000000 00000000 R . . . . T .
+GetWindowPlacement        .text 0081E682 00000006 00000000 00000000 R . . . . T .
+ReleaseCapture            .text 0081E688 00000006                   R . . . . T .
+RegisterClassA            .text 0081E68E 00000006 00000000 00000000 R . . . . T .
+LoadCursorA               .text 0081E694 00000006 00000000 00000000 R . . . . T .
+LoadIconA                 .text 0081E69A 00000006 00000000 00000000 R . . . . T .
+ShowWindow                .text 0081E6A0 00000006 00000000 00000000 R . . . . T .
+SetWindowLongA            .text 0081E6A6 00000006 00000000 00000000 R . . . . T .
+DestroyWindow             .text 0081E6AC 00000006 00000000 00000000 R . . . . T .
+SystemParametersInfoA     .text 0081E6B2 00000006 00000000 00000000 R . . . . T .
+AdjustWindowRectEx        .text 0081E6B8 00000006 00000000 00000000 R . . . . T .
+GetMenu                   .text 0081E6BE 00000006 00000000 00000000 R . . . . T .
+GetWindowLongA            .text 0081E6C4 00000006 00000000 00000000 R . . . . T .
+IsIconic                  .text 0081E6CA 00000006 00000000 00000000 R . . . . T .
+wsprintfA                 .text 0081E6D0 00000006                   R . . . . T .
+DeleteObject              .text 0081E6D6 00000006 00000000 00000000 R . . . . T .
+RegCloseKey               .text 0081E6DC 00000006 00000000 00000000 R . . . . T .
+RegCreateKeyExA           .text 0081E6E2 00000006 00000000 00000000 R . . . . T .
+RegOpenKeyExA             .text 0081E6E8 00000006 00000000 00000000 R . . . . T .
+RegQueryValueExA          .text 0081E6EE 00000006 00000000 00000000 R . . . . T .
+RegSetValueExA            .text 0081E6F4 00000006 00000000 00000000 R . . . . T .
+RegOpenKeyA               .text 0081E6FA 00000006 00000000 00000000 R . . . . T .
+CoInitialize              .text 0081E700 00000006 00000000 00000000 R . . . . T .
+CoCreateInstance          .text 0081E706 00000006 00000000 00000000 R . . . . T .
+CoUninitialize            .text 0081E70C 00000006                   R . . . . T .
+sub_81E720                .text 0081E720 00000330 00000034 00000010 R . . . . . .
+sub_81EA70                .text 0081EA70 0000033E 00000040 00000010 R . . . . . .
+sub_81EDC0                .text 0081EDC0 000002EA 0000003C 00000010 R . . . . . .
+sub_81F0C0                .text 0081F0C0 0000029D 00000030 00000010 R . . . . . .
+sub_81F360                .text 0081F360 000016A9 00000110 00000004 R . . . . . .
+_sub_820A10               .text 00820A10 00000272 00000108 00000004 R . . . . . .
+_RwD3D9RasterIsCompressed .text 00820C90 00000017 00000000 00000004 R . . . . . .
+sub_820CB0                .text 00820CB0 0000000C 00000000 00000008 R . . . . . .
+sub_820CBC                .text 00820CBC 00000012 00000000 00000004 R . . . . . .
+sub_820CCE                .text 00820CCE 0000000D 00000000 00000004 R . . . . . .
+sub_820CDB                .text 00820CDB 0000000B 00000000 00000004 R . . . . . .
+sub_820CE6                .text 00820CE6 00000024                   R . . . . . .
+sub_820D0A                .text 00820D0A 0000000E 00000000 00000000 R . . . . . .
+sub_820D18                .text 00820D18 00000006 00000000 00000000 R . . . . . .
+sub_820D1E                .text 00820D1E 00000027 00000000 00000004 R . . . . . .
+sub_820D45                .text 00820D45 00000004 00000000 00000000 R . . . . . .
+sub_820D49                .text 00820D49 00000009 00000000 00000000 R . . . . . .
+sub_820D52                .text 00820D52 0000000B 00000000 00000004 R . . . . . .
+sub_820D5D                .text 00820D5D 0000000B 00000000 00000004 R . . . . . .
+sub_820D68                .text 00820D68 0000000B 00000000 00000004 R . . . . . .
+sub_820D73                .text 00820D73 0000000B 00000000 00000004 R . . . . . .
+sub_820D7E                .text 00820D7E 0000000B 00000000 00000004 R . . . . . .
+sub_820D89                .text 00820D89 0000000B 00000000 00000004 R . . . . . .
+sub_820D94                .text 00820D94 0000000B 00000000 00000004 R . . . . . .
+sub_820D9F                .text 00820D9F 00000019 00000000 00000004 R . . . . . .
+sub_820DB8                .text 00820DB8 00000005 00000000 00000000 R . . . . . .
+sub_820DBD                .text 00820DBD 00000244 00000048 00000008 R . . . B T .
+sub_821001                .text 00821001 0000001C 00000004 00000001 R . . . . . .
+sub_82101D                .text 0082101D 000000B0 0000000C 00000004 R . . . B . .
+sub_8210CD                .text 008210CD 000000C8 0000000C 00000004 R . . . B . .
+operator new(uint)        .text 00821195 00000005                   R . . . . . .
+operator new(uint)        .text 0082119A 00000024 00000004 00000004 R . . . . . .
+sub_8211BE                .text 008211BE 00000018 00000004 00000004 R . . . . . .
+sub_8211D6                .text 008211D6 0000001C 00000004 00000001 R . . . . . .
+sub_8211F2                .text 008211F2 0000000B                   R . . . . . .
+sub_8211FD                .text 008211FD 00000058 00000054 00000000 R . . . B . .
+String_base___Xlen        .text 00821255 00000059 00000054 00000000 R . . . B . .
+sub_8212AE                .text 008212AE 0000000B                   R . . . . . .
+sub_8212B9                .text 008212B9 0000001C 00000004 00000001 R . . . . . .
+sub_8212D5                .text 008212D5 00000018 00000004 00000004 R . . . . . .
+
