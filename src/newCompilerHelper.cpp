@@ -27,9 +27,15 @@ SOFTWARE.
 // http://brmodstudio.forumeiros.com
 // http://brmodstudio.forumeiros.com
 // http://brmodstudio.forumeiros.com
+/*
+    Compile with:
+    g++ newCompilerHelper.cpp CText.cpp --std=c++17
+
+    Tested with MinGW objects on Windows
+*/
 #define _CRT_SECURE_NO_WARNINGS
 
-#include "stdafx.h"
+#include "CText.h"
 #include <iostream>
 #include <fstream>
 #include <memory>
@@ -37,12 +43,12 @@ SOFTWARE.
 #include <string>
 #include <map>
 #include <utility>
-#include <optional>
 #include <sstream>
-#include <Windows.h>
-#include "CText.h"
 #include <cctype>
+#include <optional>
+#include <cmath>
 
+//// http://www.zedwood.com/article/cpp-str_replace-function
 std::string& str_replace(const std::string &search, const std::string &replace, std::string &subject)
 {
 	std::string buffer;
@@ -51,13 +57,14 @@ std::string& str_replace(const std::string &search, const std::string &replace, 
 	const int strleng = subject.length();
 
 	if (sealeng == 0)
-		return subject;//no change
+		return subject; //no change
 
 	for (int i = 0, j = 0; i<strleng; j = 0)
 	{
 		while (i + j<strleng && j<sealeng && subject[i + j] == search[j])
 			j++;
-		if (j == sealeng)//found 'search'
+
+		if (j == sealeng) //found 'search'
 		{
 			buffer.append(replace);
 			i += sealeng;
@@ -67,31 +74,37 @@ std::string& str_replace(const std::string &search, const std::string &replace, 
 			buffer.append(&subject[i++], 1);
 		}
 	}
+
 	subject = buffer;
 	return subject;
 }
 
-static inline void ltrim(std::string &s) {
-	s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](int ch) {
+static inline void ltrim(std::string &s)
+{
+	s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](int ch)
+    {
 		return !std::isspace(ch);
 	}));
 }
 
 // trim from end (in place)
-static inline void rtrim(std::string &s) {
-	s.erase(std::find_if(s.rbegin(), s.rend(), [](int ch) {
+static inline void rtrim(std::string &s)
+{
+	s.erase(std::find_if(s.rbegin(), s.rend(), [](int ch)
+    {
 		return !std::isspace(ch);
 	}).base(), s.end());
 }
 
 // trim from both ends (in place)
-static inline void trim(std::string &s) {
+static inline void trim(std::string &s)
+{
 	ltrim(s);
 	rtrim(s);
 }
 
-std::string compileCMD = "F:/MinGW/bin/g++.exe -c %0 -fno-exceptions -IF:\MinGW\include -IF:\MinGW\i686-w64-mingw32\include -IF:\MinGW\i686-w64-mingw32\include\c++ -IF:\MinGW\i686-w64-mingw32\include\c++\i686-w64-mingw32 -IF:\MinGW\lib\gcc\i686-w64-mingw32\4.8.3\include -nostdlib -std=c++11 -shared -masm=intel -o %1";
-std::string compileCMD2 = "F:/MinGW/bin/g++.exe -c new.cpp -fno-exceptions -IF:\MinGW\include -IF:\MinGW\i686-w64-mingw32\include -IF:\MinGW\i686-w64-mingw32\include\c++ -IF:\MinGW\i686-w64-mingw32\include\c++\i686-w64-mingw32 -IF:\MinGW\lib\gcc\i686-w64-mingw32\4.8.3\include -nostdlib -std=c++11 -shared -masm=intel -o testnew.o";
+std::string compileCMD = "F:/MinGW/bin/g++.exe -c %0 -fno-exceptions -IF:\\MinGW\\include -IF:\\MinGW\\i686-w64-mingw32\\include -IF:\\MinGW\\i686-w64-mingw32\\include\\c++ -IF:\\MinGW\\i686-w64-mingw32\\include\\c++\\i686-w64-mingw32 -IF:\\MinGW\\lib\\gcc\\i686-w64-mingw32\\4.8.3\\include -nostdlib -std=c++11 -shared -masm=intel -o %1";
+std::string compileCMD2 = "F:/MinGW/bin/g++.exe -c new.cpp -fno-exceptions -IF:\\MinGW\\include -IF:\\MinGW\\i686-w64-mingw32\\include -IF:\\MinGW\\i686-w64-mingw32\\include\\c++ -IF:\\MinGW\\i686-w64-mingw32\\include\\c++\\i686-w64-mingw32 -IF:\\MinGW\\lib\\gcc\\i686-w64-mingw32\\4.8.3\\include -nostdlib -std=c++11 -shared -masm=intel -o testnew.o";
 
 bool debugOn = false;
 bool outputToGTA3SCFormat = false;
@@ -198,7 +211,8 @@ struct writtenSymbols
 
 #pragma pack(pop)
 
-class COFFFile {
+class COFFFile
+{
 public:
 	COFFHeader											header;
 	COFFOptionalHeader									optionalHeader;
@@ -1341,8 +1355,14 @@ void toCLEOSCM(COFFFile &COFFfile, const std::string &outFinalFile)
 	}
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    /*
+    TODO: read command line in argc/argv.
+    List/command to export some simbols to output file
+    Print usage
+    */
+
 	loadSymbolList();
 
 	try {
@@ -1351,8 +1371,9 @@ int main()
 		compileCMD = Config[""]["compileCMD"];
 		compileCMD2 = Config[""]["compileCMD2"];
 	}
-	catch (const std::exception &e) {
-		MessageBoxA(0, e.what(), "Error", 0);
+	catch (const std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
 		return 0;
 	}
 
@@ -1544,7 +1565,6 @@ int main()
 			break;
 		}
 	} while (!doExit);
-	system("pause");
+    
     return 0;
 }
-
