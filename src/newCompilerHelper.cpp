@@ -33,6 +33,8 @@ SOFTWARE.
 
     Tested with MinGW objects on Windows
 */
+#include <cstddef>
+#include <string_view>
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "CText.h"
@@ -215,7 +217,7 @@ class COFFFile {
     COFFOptionalHeader optionalHeader{};
     std::unique_ptr<COFFSectionHeaderCPP[]> sectionsHeader;
     std::unique_ptr<COFFSymbolTable[]> symbolTable;
-    std::map<int32_t, std::string> stringData;
+    std::map<uint32_t, std::string> stringData;
 
     std::vector<writtenSymbols> wSymbols;
 
@@ -228,44 +230,45 @@ class COFFFile {
     [[nodiscard]] auto getNumSymbols() const -> int { return header.f_nsyms; }
 
     [[nodiscard]] auto getFullName(const COFFNameUnion &n) const
-        -> std::string {
-        std::string result = "Fail to get name";
+        -> std::string_view {
+        std::string_view result = "Fail to get name";
 
         if (n.zeroes != 0) {
-            int num = 8;
-
             if (n.str[7] == 0) {
-                num = strlen(n.str);
+                result = std::string_view(n.str);
+                return result;
             }
 
-            result = "";
-            result.insert(0, n.str, num);
-        } else {
-            auto off = stringData.find(n.offset);
+            return {n.str, 8};
+        }
 
-            if (off != stringData.end()) {
-                result = off->second;
-            }
+        auto off = stringData.find(n.offset);
+
+        if (off != stringData.end()) {
+            result = off->second;
         }
 
         return result;
     }
 
-    std::string getSectionName(int id) const {
-        if (getNumSections() <= id)
+    [[nodiscard]] auto getSectionName(int id) const -> std::string_view {
+        if (getNumSections() <= id) {
             return "Fail to get name";
+        }
 
         return getFullName(sectionsHeader[id].rawSectionHeader.s_name);
     }
 
-    std::string getSymbolName(int id) const {
-        if (getNumSymbols() <= id)
+    [[nodiscard]] auto getSymbolName(int id) const -> std::string_view {
+        if (getNumSymbols() <= id) {
             return "Fail to get name";
+        }
 
         return getFullName(symbolTable[id].name);
     }
 
-    auto getSymbolByName(const std::string &name) const -> COFFSymbolTable & {
+    [[nodiscard]] auto getSymbolByName(std::string_view name) const
+        -> COFFSymbolTable & {
         for (int i = 0; i < getNumSymbols(); i++) {
             if (getFullName(symbolTable[i].name) == name) {
                 return symbolTable[i];
@@ -488,7 +491,7 @@ struct scriptSymbols {
 
 std::vector<scriptSymbols> symbols;
 
-auto getSymbolByName(const std::string &name) -> scriptSymbols & {
+auto getSymbolByName(std::string_view name) -> scriptSymbols & {
     for (auto &symbol : symbols) {
         if (symbol.name == name) {
             return symbol;
@@ -748,7 +751,7 @@ void loadSymbolList() {
 
             nSymbol.type = externalSymbolsType::textFunction;
 
-            if (std::string(sect).find("data") != std::string::npos) {
+            if (std::string_view(sect).find("data") != std::string_view::npos) {
                 nSymbol.type = externalSymbolsType::dataFunction;
             }
         }
@@ -858,7 +861,7 @@ void toCLEOSCM(COFFFile &COFFfile, const std::string &outFinalFile) {
             for (int i = 0; i < COFFfile.getNumSymbols(); i++) {
                 auto &symbol = COFFfile.symbolTable[i];
                 if (symbol.n_scnum == 0) {
-                    auto objFullName = COFFfile.getFullName(symbol.name);
+                    std::string objFullName(COFFfile.getFullName(symbol.name));
                     /*std::cout << objFullName << std::endl;
                     std::cout << "n_type " << symbol.n_type << std::endl;
                     std::cout << "n_value " << symbol.n_value << std::endl;
