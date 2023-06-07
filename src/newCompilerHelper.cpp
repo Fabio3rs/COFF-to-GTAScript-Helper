@@ -44,6 +44,7 @@ SOFTWARE.
 #include <map>
 #include <utility>
 #include <sstream>
+#include <cstdint>
 #include <cctype>
 #include <optional>
 #include <cmath>
@@ -125,8 +126,8 @@ union COFFNameUnion
 	char	str[8];
 	struct
 	{
-		unsigned long zeroes;
-		unsigned long offset;
+		uint32_t zeroes;
+		uint32_t offset;
 	};
 };
 
@@ -134,9 +135,9 @@ union COFFNameUnion
 struct COFFHeader {
 	unsigned short			f_magic;	/* Magic number */
 	unsigned short		 	f_nscns;	/* Number of Sections */
-	long 					f_timdat;	/* Time & date stamp */
-	long 					f_symptr;	/* File pointer to Symbol Table */
-	long 					f_nsyms;	/* Number of Symbols */
+	int32_t 					f_timdat;	/* Time & date stamp */
+	int32_t 					f_symptr;	/* File pointer to Symbol Table */
+	int32_t 					f_nsyms;	/* Number of Symbols */
 	unsigned short 			f_opthdr;	/* sizeof(Optional Header) */
 	unsigned short			f_flags;	/* Flags */
 };
@@ -144,33 +145,33 @@ struct COFFHeader {
 struct COFFOptionalHeader {
 	unsigned short			magic;          /* Magic Number                    */
 	unsigned short			vstamp;         /* Version stamp                   */
-	unsigned long			tsize;          /* Text size in bytes              */
-	unsigned long			dsize;          /* Initialised data size           */
-	unsigned long			bsize;          /* Uninitialised data size         */
-	unsigned long			entry;          /* Entry point                     */
-	unsigned long 			text_start;     /* Base of Text used for this file */
-	unsigned long 			data_start;     /* Base of Data used for this file */
+	uint32_t			tsize;          /* Text size in bytes              */
+	uint32_t			dsize;          /* Initialised data size           */
+	uint32_t			bsize;          /* Uninitialised data size         */
+	uint32_t			entry;          /* Entry point                     */
+	uint32_t 			text_start;     /* Base of Text used for this file */
+	uint32_t 			data_start;     /* Base of Data used for this file */
 };
 
 enum COFFSectionHeaderType { STYP_TEXT = 0x20, STYP_DATA = 0x40, STYP_BSS = 0x80};
-long COFFSectionHeaderTypes = STYP_TEXT | STYP_DATA | STYP_BSS;
+int32_t COFFSectionHeaderTypes = STYP_TEXT | STYP_DATA | STYP_BSS;
 
 struct COFFSectionHeader {
 	COFFNameUnion			s_name;	/* Section Name */
-	long					s_paddr;	/* Physical Address */
-	long					s_vaddr;	/* Virtual Address */
-	long					s_size;		/* Section Size in Bytes */
-	long					s_scnptr;	/* File offset to the Section data */
-	long					s_relptr;	/* File offset to the Relocation table for this Section */
-	long					s_lnnoptr;	/* File offset to the Line Number table for this Section */
+	int32_t					s_paddr;	/* Physical Address */
+	int32_t					s_vaddr;	/* Virtual Address */
+	int32_t					s_size;		/* Section Size in Bytes */
+	int32_t					s_scnptr;	/* File offset to the Section data */
+	int32_t					s_relptr;	/* File offset to the Relocation table for this Section */
+	int32_t					s_lnnoptr;	/* File offset to the Line Number table for this Section */
 	unsigned short			s_nreloc;	/* Number of Relocation table entries */
 	unsigned short			s_nlnno;	/* Number of Line Number table entries */
-	long					s_flags;	/* Flags for this section */
+	int32_t					s_flags;	/* Flags for this section */
 };
 
 struct COFFRealocationsEntries {
-	long					r_vaddr;	/* Reference Address */
-	long					r_symndx;	/* Symbol index */
+	int32_t					r_vaddr;	/* Reference Address */
+	int32_t					r_symndx;	/* Symbol index */
 	unsigned short			r_type;		/* Type of relocation */
 	//unsigned short			offset;		/* offset */
 };
@@ -178,8 +179,8 @@ struct COFFRealocationsEntries {
 struct COFFLineNumberEntries {
 	union
 	{
-		long				l_symndx;	/* Symbol Index */
-		long				l_paddr;	/* Physical Address */
+		int32_t				l_symndx;	/* Symbol Index */
+		int32_t				l_paddr;	/* Physical Address */
 	} l_addr;
 	unsigned short			l_lnno;		/* Line Number */
 };
@@ -187,7 +188,7 @@ struct COFFLineNumberEntries {
 struct COFFSymbolTable
 {
 	COFFNameUnion			name;
-	long					n_value;	/* Value of Symbol */
+	int32_t					n_value;	/* Value of Symbol */
 	short					n_scnum;	/* Section Number */
 	unsigned short			n_type;		/* Symbol Type */
 	char					n_sclass;	/* Storage Class */
@@ -218,7 +219,7 @@ public:
 	COFFOptionalHeader									optionalHeader;
 	std::unique_ptr<COFFSectionHeaderCPP[]>				sectionsHeader;
 	std::unique_ptr<COFFSymbolTable[]>					symbolTable;
-	std::map<long, std::string>							stringData;
+	std::map<int32_t, std::string>							stringData;
 
 	std::vector<writtenSymbols>							wSymbols;
 
@@ -1349,7 +1350,7 @@ void toCLEOSCM(COFFFile &COFFfile, const std::string &outFinalFile)
 				rawFile.write(reinterpret_cast<const char*>(outputData.data()), outputData.size());
 			}
 
-			std::wcout << L"Bytes de código " << outputData.size() << std::endl;
+			std::cout << "Bytes de código " << outputData.size() << std::endl;
 			vectorDataToFile(COFFfile, fout, outputData);
 		}
 	}
@@ -1406,14 +1407,14 @@ int main(int argc, char *argv[])
 			what = true;
 			do
 			{
-				std::wcout << L"Usando modo " << (outputToGTA3SCFormat? "GTA3Script" : "Sanny Builder") << "\n";
+				std::cout << "Usando modo " << (outputToGTA3SCFormat? "GTA3Script" : "Sanny Builder") << "\n";
 
-				std::wcout << L"Opções:\n";
-				std::wcout << L"	1. Compilar source C/C++ e gerar código CLEO/SCM\n";
-				std::wcout << L"	2. Gerar código para CLEO/SCM de um objeto pronto\n";
-				std::wcout << L"	3. Usar sintaxe de Sanny Builder\n";
-				std::wcout << L"	4. Usar sintaxe de GTA3Script\n";
-				std::wcout << L"	5. Sair\n";
+				std::cout << "Opções:\n";
+				std::cout << "	1. Compilar source C/C++ e gerar código CLEO/SCM\n";
+				std::cout << "	2. Gerar código para CLEO/SCM de um objeto pronto\n";
+				std::cout << "	3. Usar sintaxe de Sanny Builder\n";
+				std::cout << "	4. Usar sintaxe de GTA3Script\n";
+				std::cout << "	5. Sair\n";
 
 				optTemp = "";
 				std::cin >> optTemp;
@@ -1448,7 +1449,7 @@ int main(int argc, char *argv[])
 						break;
 
 					default:
-						std::wcout << L"Opção inválida, selecione uma opção de 1 a 3\n\n";
+						std::cout << "Opção inválida, selecione uma opção de 1 a 3\n\n";
 						break;
 					}
 				}
@@ -1468,7 +1469,7 @@ int main(int argc, char *argv[])
 				{
 				case 1:
 				{
-					std::wcout << L"Digite o nome do arquivo a ser compilado:\n";
+					std::cout << "Digite o nome do arquivo a ser compilado:\n";
 
 					optTemp = "";
 					std::cin >> optTemp;
@@ -1484,7 +1485,7 @@ int main(int argc, char *argv[])
 
 				case 2:
 				{
-					std::wcout << L"Digite o nome do objeto (arquivo do tipo COFF) a ser convertido para uso em Scripts CLEO/SCM:\n";
+					std::cout << "Digite o nome do objeto (arquivo do tipo COFF) a ser convertido para uso em Scripts CLEO/SCM:\n";
 
 					optTemp = "";
 					std::cin >> optTemp;
@@ -1499,7 +1500,7 @@ int main(int argc, char *argv[])
 					break;
 
 				default:
-					std::wcout << L"Erro, opcao invalida\n";
+					std::cout << "Erro, opcao invalida\n";
 					estagMenu = 0;
 					what = false;
 					break;
@@ -1513,7 +1514,7 @@ int main(int argc, char *argv[])
 			what = true;
 			do
 			{
-				std::wcout << L"Digite o nome do arquivo intermediario (COFF object file):\n";
+				std::cout << "Digite o nome do arquivo intermediario (COFF object file):\n";
 
 				optTemp = "";
 				std::cin >> optTemp;
@@ -1532,7 +1533,7 @@ int main(int argc, char *argv[])
 			what = true;
 			do
 			{
-				std::wcout << L"Digite o nome do arquivo de saída final:\n";
+				std::cout << "Digite o nome do arquivo de saída final:\n";
 
 				optTemp = "";
 				std::cin >> optTemp;
